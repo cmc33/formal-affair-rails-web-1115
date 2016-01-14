@@ -1,1 +1,18 @@
-<!-- Your form goes here! -->
+<%= form_tag "/concretes/#{@concrete.id}", method: :patch do %>
+  <fieldset>
+    <%= label_tag "concrete[mix_type]", "Mix Type" %>
+    <%= text_field_tag "concrete[mix_type]", @concrete.mix_type %>
+  </fieldset>
+
+  <%= field_set_tag "Please select a color", class: "important" do %>
+  <%= label_tag "concrete[color]", "Color" %>
+  <%= text_field_tag "concrete[color]", @concrete.color %>
+  <% end %>
+
+  <%= label_tag "concrete[psi]", "PSI" %>
+  <%= text_field_tag "concrete[psi]", @concrete.psi %>
+
+  <%= label_tag "concrete[cost_per_yard]", "Cost Per Yard" %>
+  <%= text_field_tag "concrete[cost_per_yard]", @concrete.cost_per_yard %>
+  <%= submit_tag "Update Concrete" %>
+  <% end %>
